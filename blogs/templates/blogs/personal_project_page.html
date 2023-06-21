@@ -1,0 +1,26 @@
+{% extends "blogs/basic.html" %}
+{% load static %}
+{% block body_data %}
+    {%for i in data %}
+  <div class="container project_data_all">
+  
+      <div class="overview">
+          <div class="button_project">
+              <h2 class="heading">{{i.title|safe}}</h2><br>
+              {%if user.is_authenticated %}
+              <a target="_blank" href="{{i.Project_url}}"><button class="btn btn-outline-secondary">Browse Source Code</button></a>
+              {%else %}
+              <a onclick="myFunction('source code')"><button class="btn btn-outline-secondary">Browse Source Code</button></a>
+              {% endif %}
+          </div>
+          <div class="date_image">
+              <img src="/media/{{i.image}}" alt="Not Loaded">
+              <p>Publish on: <strong>{{i.date_time}}</strong></p>
+          </div>
+      </div>
+      <div class="description">
+          {{i.decription|safe}}
+      </div>
+  </div>
+  {% endfor%}
+{% endblock body_data %}

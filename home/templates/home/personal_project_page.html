@@ -1,0 +1,18 @@
+{% extends "home/basic.html" %}
+{% load static %}
+{% block body_data %}
+    {%for i in data %}
+  <div class="container project_data_all">
+      <div class="overview">
+          <h2 class="heading">{{i.title|safe}}</h2>
+          <div class="date_image">
+              <img src="/media/{{i.image}}" alt="Not Loaded">
+              <p>Publish on: <strong>{{i.date_time}}</strong></p>
+          </div>
+      </div>
+      <div class="description">
+          {{i.decription|safe}}
+      </div>
+  </div>
+  {% endfor%}
+{% endblock body_data %}

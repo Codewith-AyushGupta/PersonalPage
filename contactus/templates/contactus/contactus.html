@@ -1,0 +1,35 @@
+{% extends "blogs/basic.html" %}
+{% load static %}
+{% block body_data %}
+
+<div class="line_img">
+        <hr>
+        <img src="{% static 'home/photos/avtar.svg'%}" alt="AVTART" class="contact_avtar my-5">
+    </div>
+<h1 class="thanks_message">
+    Thanks for taking the time to reach out. <br> How can I help you today?
+</h1>
+<form  class="form" method="POST">
+    {% csrf_token %}
+    <div class="col-md-6">
+        <label for="name" class="form-label">Name</label>
+        <input name="name" type="text" class="form-control" placeholder="Name" id="name" name="name">
+    </div>
+    <div class="col-md-6">
+        <label for="site" class="form-label">Email</label>
+        <input name="email" type="email" class="form-control" placeholder="abc@gamil.com" id="site" name="site">
+    </div>
+    <div class="col-12">
+        <label for="site" class="form-label">Phone</label>
+        <input name="phone" type="number" class="form-control" placeholder="+91-1234567890" id="site" name="site">
+    </div>
+    <div class="col-12">
+        <label for="text" class="form-label">Messsage</label>
+        <textarea name="message" class="form-control" placeholder="Messsage" id="text" name="text" rows="3"></textarea>
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+<div style="height: 50vh;"></div>
+{% endblock body_data %}

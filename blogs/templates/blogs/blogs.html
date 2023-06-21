@@ -1,0 +1,28 @@
+{% extends "blogs/basic.html" %}
+{% load static %}
+{% block body_data %}
+<div class="container blog">
+
+    <div class="heading_about">
+        <div class="material_1">
+            <h2>Welcome to <strong class="hilight">CodeWithAyush</strong></h2>
+            <p>Confused on which course to take? I have got you covered. Browse courses and find out the best course for
+                you. Its free! Code With Harry is my attempt to teach basics and those coding techniques to people in
+                short time which took me ages to learn.</p>
+            <button class="btn  btn-dark">free Code</button>
+            <button class="btn btn-secondary">Explore Projects</button>
+        </div>
+        <img src="{%static 'home/photos/back.jpg'%}" alt="picture">
+    </div>
+    <h2>Blogs <strong class="hilightc">CodeWithAyush</strong></h2>
+    <div class="reverse">
+        {% for i in data1 %}
+        <div class="blog_body">
+            <p>{{i.date_time}}</p>
+            <h3>{{i.title}}</h3>
+            <a href="blogs/{{i.unique_id}}">Read More</a>
+        </div>
+        {% endfor%}
+    </div>
+</div>
+{% endblock body_data %}
